@@ -12,15 +12,17 @@ def canUnlockAll(boxes):
     """
 
     obj = {}
+    if len(boxes) <= 0:
+        return False
     for box in range(len(boxes)):
         can_unlock = False
-        print('Box ', box)
+        # print('Box ', box)
         if box > 0 and box not in obj.keys():
             for key, value in obj.items():
-                print(box)
+                # print(box)
                 # if key == box and value == 'unlocked':
                 if box in boxes[key]:
-                    print('here')
+                    # print('here')
                     can_unlock = True
                     break
             if not can_unlock:
