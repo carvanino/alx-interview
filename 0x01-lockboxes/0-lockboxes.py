@@ -12,8 +12,6 @@ def canUnlockAll(boxes):
     """
 
     obj = {}
-    if len(boxes) <= 0:
-        return False
     for box in range(len(boxes)):
         can_unlock = False
         print('Box ', box)
