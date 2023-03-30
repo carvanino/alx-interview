@@ -21,7 +21,7 @@ def canUnlockAll(boxes):
             for key, value in obj.items():
                 # print(box)
                 # if key == box and value == 'unlocked':
-                if box in boxes[key]:
+                if key < len(boxes) and box in boxes[key]:
                     # print('here')
                     can_unlock = True
                     break
@@ -30,10 +30,11 @@ def canUnlockAll(boxes):
             continue
         keys = boxes[box]
         for key in range(len(keys)):
+            element = keys[key]
             if keys[key] < len(boxes):
                 # checks if key is a valid box index
                 # add the key as the 'key' to the object, obj
-                element = keys[key]
+                # element = keys[key]
                 obj[element] = 'unlocked'
             else:
                 obj[element] = 'locked'
