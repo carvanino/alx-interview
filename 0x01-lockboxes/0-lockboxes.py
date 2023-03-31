@@ -24,9 +24,7 @@ def canUnlockAll(boxes):
             if not can_unlock:
                 return False
             continue
-        keys = boxes[box]
         for key in keys:
-            # element = key
             if key < len(boxes):
                 # checks if key is a valid box index
                 # add the key as the 'key' to the object, obj
