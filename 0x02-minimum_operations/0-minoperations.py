@@ -38,7 +38,7 @@ def minOperations(n):
     the n of H character in the file given the minimal type of operations
     allowable
     """
-    if n < 1:
+    if n <= 1:
         return 0
     sum = 0
     for i in prime_factors(n):
