@@ -3,7 +3,8 @@
 Task 0 - Log parsing
 """
 
-from sys import stdin
+# from sys import stdin
+import sys
 
 count = 0
 fileSize = 0
@@ -11,7 +12,7 @@ pStatusCode = [200, 301, 400, 401, 403, 404, 405, 500]
 statusCodeOccurence = {}
 
 try:
-    for line in stdin:
+    for line in sys.stdin:
         try:
             each = line.split()
             count = count + 1
