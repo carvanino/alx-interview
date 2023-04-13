@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Task 0 - Log parsing
+"""
 
 from sys import stdin
 
@@ -9,8 +12,6 @@ statusCodeOccurence = {}
 
 try:
     for line in stdin:
-        if 'Exit' == line.rstrip():
-            break
         try:
             each = line.split()
             count = count + 1
