@@ -16,7 +16,7 @@ def parse_log():
         for line in sys.stdin:
             each = line.split()
             if len(each) < 2:
-                return None:
+                return None
             count += 1
             fileSize += int(each[-1:][0])
             statusCode = int(each[-2:][0])
