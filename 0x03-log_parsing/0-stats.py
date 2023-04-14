@@ -46,7 +46,7 @@ try:
             print('File size: {}'.format(fileSize))
             for items in sorted(statusCodeOccurence.items()):
                 print('{}: {}'.format(items[0], items[1]))
-            statusCodeOccurence.clear()
+            # statusCodeOccurence.clear()
             # print("Exception occurred:", err)
             # print(count)
             continue
