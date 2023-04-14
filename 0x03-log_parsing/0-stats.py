@@ -12,30 +12,27 @@ def parse_log():
     pStatusCode = [200, 301, 400, 401, 403, 404, 405, 500]
     statusCodeOccurence = {}
 
-    try:
-        for line in sys.stdin:
-            try:
-                each = line.split()
-                count += 1
-                fileSize += int(each[-1:][0])
-                statusCode = int(each[-2:][0])
-                if statusCode in pStatusCode:
-                    if statusCode in statusCodeOccurence:
-                        statusCodeOccurence[statusCode] += 1
-                    else:
-                        statusCodeOccurence[statusCode] = 1
+    for line in sys.stdin:
+        try:
+            each = line.split()
+            count += 1
+            fileSize += int(each[-1:][0])
+            statusCode = int(each[-2:][0])
+            if statusCode in pStatusCode:
+                if statusCode in statusCodeOccurence:
+                    statusCodeOccurence[statusCode] += 1
+                else:
+                    statusCodeOccurence[statusCode] = 1
 
-                if count == 10:
-                    count = 0
-                    raise ValueError("Count Reached 10")
-            except ValueError as err:
-                print_error(fileSize, statusCodeOccurence, err)
-                continue
-    except KeyboardInterrupt:
-        print_error(fileSize, statusCodeOccurence, "KeyboardInterrupt")
+            if count == 10:
+                count = 0
+                print_error(fileSize, statusCodeOccurence)
+        except KeyboardInterrupt:
+            raise
+            print_error(fileSize, statusCodeOccurence)
 
 
-def print_error(fileSize, statusCodeOccurence, error):
+def print_error(fileSize, statusCodeOccurence):
     print('File size: {}'.format(fileSize))
     for items in sorted(statusCodeOccurence.items()):
         print('{}: {}'.format(items[0], items[1]))
