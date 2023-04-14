@@ -12,8 +12,8 @@ def parse_log():
     pStatusCode = [200, 301, 400, 401, 403, 404, 405, 500]
     statusCodeOccurence = {}
 
-    for line in sys.stdin:
-        try:
+    try:
+        for line in sys.stdin:
             each = line.split()
             count += 1
             fileSize += int(each[-1:][0])
@@ -27,9 +27,9 @@ def parse_log():
             if count == 10:
                 count = 0
                 print_error(fileSize, statusCodeOccurence)
-        except KeyboardInterrupt:
-            raise
-            print_error(fileSize, statusCodeOccurence)
+    except KeyboardInterrupt:
+        print_error(fileSize, statusCodeOccurence)
+        raise
 
 
 def print_error(fileSize, statusCodeOccurence):
