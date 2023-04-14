@@ -16,19 +16,25 @@ def parse_log():
         for line in sys.stdin:
             each = line.split()
             if len(each) < 2:
-                return None
-            count += 1
-            fileSize += int(each[-1:][0])
-            statusCode = int(each[-2:][0])
-            if statusCode in pStatusCode:
-                if statusCode in statusCodeOccurence:
-                    statusCodeOccurence[statusCode] += 1
-                else:
-                    statusCodeOccurence[statusCode] = 1
+                continue
+            try:
+                count += 1
+                fileSize += int(each[-1:][0])
+                statusCode = int(each[-2:][0])
+                if statusCode in pStatusCode:
+                    if statusCode in statusCodeOccurence:
+                        statusCodeOccurence[statusCode] += 1
+                    else:
+                        statusCodeOccurence[statusCode] = 1
 
-            if count == 10:
-                count = 0
-                print_error(fileSize, statusCodeOccurence)
+                if count == 10:
+                    count = 0
+                    print_error(fileSize, statusCodeOccurence)
+            except ValueError:
+                continue
+        # if count > 0:
+            # print('Here')
+        print_error(fileSize, statusCodeOccurence)
     except KeyboardInterrupt:
         print_error(fileSize, statusCodeOccurence)
         raise
