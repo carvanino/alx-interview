@@ -38,7 +38,7 @@ def validUTF8(data):
     Determines if a given set of data validates UTF-8 encoding
     Valid utf-8 contains 4 byte of data
     if data is of 1 byte - The 8th bit must be 0
-    if data is of 2 byte - The leadinjlg bit must be 110
+    if data is of 2 byte - The leading bit must be 110
     if data is of 3 byte - The leading bit must be 1110
     if data is of 4 byte - The leading bit must br 11110
 
@@ -52,7 +52,6 @@ def validUTF8(data):
         # least_num = int(num[:8])
         # least_num = (num[:8])
         # least_num = int(least_num)
-        # print("=============> {}".format(least_num))
         least_num = num & 255
         if byte_num == 0:
             # if least_num >> 7 == 0:
@@ -81,23 +80,3 @@ def validUTF8(data):
             else:
                 return False
     return byte_num == 0
-
-
-"""
-print(toBinary(467))
-data = [467, 133, 108]
-print(validUTF8(data))
-print("True", validUTF8(data))
-data = [240, 188, 128, 167]
-print("True", validUTF8(data))
-data = [235, 140]
-print("False", validUTF8(data))
-data = [345, 467]
-print("False", validUTF8(data))
-data = [250, 145, 145, 145, 145]
-print("False", validUTF8(data))
-data = [0, 0, 0, 0, 0, 0]
-print("True", validUTF8(data))
-data = []
-print("True", validUTF8(data))
-"""
