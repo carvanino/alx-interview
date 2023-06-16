@@ -11,6 +11,8 @@ def makeChange(coins, total):
     coins = sorted(coins)
     if total <= 0:
         return 0
+    if len(coins) <= 0:
+        return -1
     '''
     maxi = max(coins)
     hmax = 0
