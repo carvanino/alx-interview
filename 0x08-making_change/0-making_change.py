@@ -13,17 +13,6 @@ def makeChange(coins, total):
         return 0
     if len(coins) <= 0:
         return -1
-    '''
-    maxi = max(coins)
-    hmax = 0
-    count = 0
-    while (hmax + maxi < total):
-        hmax += maxi
-        count += 1
-
-    target = total - hmax
-    coins.remove(maxi)
-    '''
     count = 1
     finder = 0
     maxi = max(coins)
@@ -42,13 +31,8 @@ def makeChange(coins, total):
         if finder == target:
             # coins.remove(maxi)
             return count
+
     '''
-    print('Finder is ', finder)
-    print('Count is ', count)
-    print('Current sum is', sum(coins))
-
-
-
 if __name__ == "__main__":
     print(makeChange([1, 2, 25], 37))
 
