@@ -43,7 +43,7 @@ def isWinner(x, nums):
         rounds += 1
 
         if Marie > Ben:
-            return 'Marie'
+            return 'Maria'
         elif Marie == Ben:
             return 'None'
         else:
@@ -52,7 +52,8 @@ def isWinner(x, nums):
 
 def get_primes(start, end):
     """
-    Returns a list of prime numbers in the range from 'start' to 'end' (inclusive).
+    Returns a list of prime numbers in the range from 'start' 
+    to 'end' (inclusive).
     """
     primes = []
     for num in range(start, end + 1):
