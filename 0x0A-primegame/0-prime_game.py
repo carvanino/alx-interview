@@ -35,7 +35,7 @@ def isWinner(x, nums):
 
                 count += 1
 
-            if len(numbers) < 1 and turn == 'Marie':
+            if len(numbers) <= 1 and turn == 'Marie':
                 Marie += 1
             else:
                 Ben += 1
