@@ -44,10 +44,10 @@ def isWinner(x, nums):
 
         if Marie > Ben:
             return 'Maria'
-        elif Marie == Ben:
-            return 'None'
-        else:
+        elif Ben < Marie:
             return 'Ben'
+        else:
+            return 'None'
 
 
 def get_primes(start, end):
