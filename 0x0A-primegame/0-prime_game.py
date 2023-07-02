@@ -10,6 +10,9 @@ def isWinner(x, nums):
     The isWinner function
     """
     rounds = 0
+    if (x < 1 or type(num) != list):
+        return 'None'
+
     while rounds != x:
         Marie = 0
         Ben = 0
